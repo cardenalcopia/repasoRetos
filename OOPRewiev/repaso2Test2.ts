@@ -5,9 +5,11 @@ let samsung= new Mobile("Galaxy 10","10","Samsung",512,"Negro",true,3,200);
 nokia.print();
 iPhone3g.print();
 samsung.print();
-// nokia.is5G=true;
-// nokia.cameraNumber=4;
-nokia.print();
-iPhone3g.print();
-samsung.print();
+nokia.setIs5G(true);
+nokia.setcamerNumber(4);
 nokia.imprimir();
+let miArray:Mobile[]=([nokia,iPhone3g,samsung]);
+for (let i=0;i<miArray.length;i++)
+{
+    miArray[i].imprimir();
+}
