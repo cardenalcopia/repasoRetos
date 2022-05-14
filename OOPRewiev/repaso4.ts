@@ -67,4 +67,26 @@ export class punto
     }
     
 }
+export class triangulo
+{
+    constructor(private trix:punto,private triy:punto,private triz:punto)
+    {
+        this.trix=trix;
+        this.triy=triy;
+        this.triz=triz;
+    }
+    public calcularLongitudLados():number[]
+    {
+       let trian:number []=[];
+        let resultadoa:number=Math.sqrt((Math.pow((this.trix.getX()-this.triy.getX()),2))+(Math.pow((this.trix.getY()-this.triy.getY()),2)));
+        trian.push(resultadoa);
+        let resultadob:number=Math.sqrt((Math.pow((this.trix.getX()-this.triz.getX()),2))+(Math.pow((this.trix.getY()-this.triz.getY()),2)));
+        trian.push(resultadob);
+        let resultadoc:number=Math.sqrt((Math.pow((this.triz.getX()-this.triy.getX()),2))+(Math.pow((this.triz.getY()-this.triy.getY()),2)));
+        trian.push(resultadoc);
+        return trian;
+    }
+
+
+}
 
