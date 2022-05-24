@@ -1,4 +1,4 @@
-export class punto
+export class Punto
 {
     constructor(private x:number,private y:number
 
@@ -9,7 +9,7 @@ export class punto
         this.y=y;
 
     }
-    public toString()
+    public toString():string
     {
         let resultado :string ="";
         let numx:string ="";
@@ -17,7 +17,7 @@ export class punto
         numx=this.x.toString();
         numy=this.y.toString();
         resultado ="("+numx+","+numy+")";
-        console.log (resultado);
+        return resultado;
     }
     public getX(): number {
         return this.x;
@@ -38,7 +38,7 @@ export class punto
         let resultado:number=Math.sqrt(Math.pow(this.x,2)+Math.pow(this.y,2));
         console.log(resultado);
     }
-    public calcularDistancia(otroPunto:punto):number
+    public calcularDistancia(otroPunto:Punto):number
     {
         let resultado:number=Math.sqrt((Math.pow((this.x-otroPunto.x),2))+(Math.pow((this.y-otroPunto.y),2)));
         return resultado;
@@ -65,11 +65,26 @@ export class punto
         }
         return cuadrante;
     }
+    public calcularMasCercano(puntos:Punto[]):Punto
+    {
+       let punto0;
+       let distancia= Number.MAX_VALUE;
+        for(let i = 0; i < puntos.length; i++)
+        {
+            if(this.calcularDistancia(puntos[i]) < distancia)
+            {                
+                distancia = this.calcularDistancia(puntos[i])  
+                punto0 = puntos[i]     
+                            
+             } 
+        }
+        return punto0      
+    }   
     
 }
-export class triangulo
+export class Triangulo
 {
-    constructor(private trix:punto,private triy:punto,private triz:punto)
+    constructor(private trix:Punto,private triy:Punto,private triz:Punto)
     {
         this.trix=trix;
         this.triy=triy;
@@ -86,7 +101,7 @@ export class triangulo
         trian.push(resultadoc);
         return trian;
     }
-
+   
 
 }
 
